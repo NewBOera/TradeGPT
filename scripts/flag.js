@@ -9,6 +9,11 @@ async function getCountryCode() {
       document.getElementById(
          "tel"
       ).placeholder = `(${countryCallingCode}) Número de télefono`;
+      const countryCallingCode2 = data.country_calling_code;
+      //Placeholder (+52 Télefono)
+      document.getElementById(
+         "tel2"
+      ).placeholder = `(${countryCallingCode}) Número de télefono`;
 
       const flagUrl = `https://flagcdn.com/16x12/${countryCode.toLowerCase()}.png`;
       document.getElementById("country-flag").src = flagUrl;
