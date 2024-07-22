@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <!-- ! Tailwind config -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+         tailwind.config = {
+            theme: {
+               extend: {
+                  colors: {},
+                  fontFamily: {
+                     Montserrat: ["Montserrat", "sans-serif"],
+                  },
+               },
+            },
+         };
+      </script>
+      <script defer src="./scripts/main.js"></script>
+      <script defer src="./scripts/form-secure.js"></script>
+      <script defer src="./scripts/notify.js"></script>
+      <script defer src="./scripts/navbar.js"></script>
+      <script defer src="./scripts/dynamic-domain.js"></script>
+      <script defer src="./scripts/modals.js"></script>
+      <script defer src="scripts/form_logic.js"></script>
+      <script defer src="scripts/flag.js"></script>
+
+      <link rel="stylesheet" href="styles/notify.css" />
+      <link rel="stylesheet" href="styles/globals.css" />
+      <link rel="stylesheet" href="./styles/navbar.css" />
+      <link rel="stylesheet" href="styles/flag.css" />
+
+      <!-- ? Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+         rel="stylesheet"
+      />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+         rel="stylesheet"
+      />
+      <style>
+         .custom-bg {
+            background-image: url(images/bg.png);
+         }
+      </style>
+   </head>
+   <body>
+      <main class="font-Montserrat">
+         <!-- ? Hero section -->
+         <section
+            id="home-section"
+            class="custom-bg flex flex-col items-center px-3 py-14"
+         >
+            <div
+               class="flex flex-col items-center gap-5 sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:[1280px] 2xl:w-[1400px]"
+            >
+               <div
+                  class="flex flex-col items-center gap-5 text-center lg:gap-10 lg:mb-5"
+               >
+                  <img
+                     src="images/logo.png.png"
+                     class="w-[80px] md:w-[150px]"
+                     alt="logo"
+                  />
+                  <h1 class="text-3xl md:text-[40px] lg:text-5xl text-white">
+                     Cree una entrada pasiva automática aplicando ChatGPT al
+                     comercio en línea
+                  </h1>
+                  <p class="text-white text-xl md:text-2xl lg:text-3xl">
+                     Descubra cómo cientos de personas están ganando hasta $500
+                     al día gracias a la nueva tecnología de TradeGPT
+                  </p>
+
+                  <p class="text-white text-base md:text-3xl lg:text font-bold">
+                     👇Complete el formulario a continuación para saber si es
+                     elegible.👇
+                  </p>
+               </div>
+
+               <div class="text-center flex flex-col items-center gap-5">
+                  <h2 class="text-white font-bold md:text-2xl lg:text-3xl">
+                     ️¡No compartiremos tus datos con nadie!
+                  </h2>
+
+                  <div class="w-full lg:w-[70%]">
+                     <form
+                        id="send-form"
+                        action=""
+                        class="flex flex-col w-full p-3 gap-2 items-center [&>input]:w-full [&>input]:rounded-lg [&>input]:p-3"
+                     >
+                        <input
+                           type="text"
+                           name="name"
+                           placeholder="Nombre Completo"
+                           class="placeholder:text-[#757575]"
+                        />
+                        <input
+                           type="email"
+                           name="email"
+                           placeholder="Correo electrónico"
+                           class="placeholder:text-[#757575]"
+                        />
+
+                        <div class="input-with-icon w-full rounded-lg">
+                           <img
+                              id="country-flag"
+                              src=""
+                              class="icon"
+                              alt="phone icon"
+                           />
+                           <input
+                              name="phone"
+                              id="tel"
+                              type="tel"
+                              class="w-full rounded-lg p-3 placeholder:text-[#757575]"
+                           />
+                        </div>
+
+                        <button
+                           onclick="sendSubscribeForm('send-form')"
+                           type="submit"
+                           class="bg-[#FF5981] w-full rounded-xl text-white text-sm md:text-lg p-1 lg:text-2xl lg:p-4"
+                        >
+                           ¡Sí, me gustaría probar el poder de la IA combinado
+                           con el comercio!
+                        </button>
+                        <div class="flex text-xs text-white">
+                           <input type="checkbox" name="" id="" />
+                           <div>
+                              Acepto la
+                              <span
+                                 onclick="clickModal('privacy-modal') "
+                                 class="cursor-pointer underline text-xs text-black"
+                                 >Pólitica de privacidad</span
+                              >
+                              los
+                              <span
+                                 onclick="clickModal('terms-modal')"
+                                 class="cursor-pointer underline text-xs text-black"
+                                 >Términos y Condiciones</span
+                              >
+                              y recibir el material publicitario.
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+
+                  <p class="text-base md:text-3xl text-white">
+                     Esta es una oportunidad limitada y única, descubre si
+                     puedes ser uno de los pocos en beneficiarse completando el
+                     formulario de arriba ☝
+                  </p>
+               </div>
+            </div>
+         </section>
+         <!-- ? TRADEGPTM  section -->
+         <section
+            id="home-section"
+            class="flex flex-col items-center justify-center"
+         >
+            <div
+               class="flex flex-col items-center sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:[1280px] 2xl:w-[1400px] px-5 md:px-2 gap-10 py-10"
+            >
+               <div class="text-center flex flex-col items-center gap-5">
+                  <h2 class="text-3xl font-bold lg:text-5xl">
+                     <span class="text-[#15986A]">TradeGPT:</span> la próxima
+                     generación de comercio con IA
+                  </h2>
+
+                  <p class="text-lg lg:text-2xl">
+                     ¿Estás cansado de perder dinero en mercados volátiles e
+                     impredecibles? ¿Quiere operar con confianza y facilidad,
+                     sin pasar horas analizando gráficos e indicadores? ¿Le
+                     gustaría tener un sistema de negociación que pueda
+                     adaptarse a cualquier condición del mercado y generarle
+                     ganancias constantes, sin emociones y las 24 horas del día,
+                     los 7 días de la semana?
+                  </p>
+
+                  <p class="text-lg lg:text-2xl">
+                     Si respondió afirmativamente a alguna de estas preguntas,
+                     entonces necesita TradeGPT👇
+                  </p>
+               </div>
+
+               <article
+                  class="flex flex-col md:flex-row md:justify-center items-center gap-5 [&>div]:min-h-[550px] [&>div]:max-w-[70%] md:[&>div]:min-h-[800px] lg:[&>div]:min-h-[600px] md:[&>div]:w-[33%] w-full lg:w-[80%]"
+               >
+                  <div
+                     class="bg-[#192136] rounded-2xl flex flex-col items-center gap-5 text-center p-3"
+                  >
+                     <img src="images/article_item_1.png.png" alt="" />
+                     <h2 class="text-white text-lg font-bold md:te">
+                        TradeGPT ES FLEXIBLE Y PERSONALIZABLE
+                     </h2>
+                     <p class="text-white">
+                        TradeGPT no es un sistema único para todos. Es
+                        personalizable y flexible, lo que le permite elegir su
+                        estilo comercial, nivel de riesgo y objetivo de
+                        ganancias preferidos. TradeGPT puede negociar con
+                        cualquier activo, cualquier moneda y en cualquier
+                        período de tiempo. Ya sea principiante o profesional,
+                        TradeGPT puede ayudarle a alcanzar sus objetivos
+                        comerciales.
+                     </p>
+                  </div>
+                  <div
+                     class="bg-[#192136] rounded-2xl flex flex-col items-center text-center p-3 gap-5"
+                  >
+                     <img src="images/article_item_2.png.png" alt="" />
+                     <h2 class="text-white text-lg font-bold">
+                        IMPULSADO POR LA IA MÁS POTENTE
+                     </h2>
+                     <p class="text-white">
+                        TradeGPT es un sistema comercial revolucionario que
+                        utiliza inteligencia artificial para analizar el mercado
+                        y ejecutar operaciones por usted. TradeGPT no se parece
+                        a ningún otro sistema comercial que haya visto. Está
+                        impulsado por GPT-4, la última y más avanzada tecnología
+                        de procesamiento de lenguaje natural del mundo. TradeGPT
+                        puede comprender el sentimiento del mercado, las
+                        noticias, las tendencias y las señales, y utilizarlas
+                        para tomar decisiones comerciales inteligentes por
+                        usted.
+                     </p>
+                  </div>
+
+                  <div
+                     class="bg-[#192136] rounded-2xl flex flex-col items-center text-center p-3 gap-5"
+                  >
+                     <img src="images/article_item_3.png.png" alt="" />
+                     <h2 class="text-white text-lg font-bold">
+                        SIN INSTALACIÓN, SIN DESCARGA, SIN PROBLEMAS
+                     </h2>
+                     <p class="text-white">
+                        TradeGPT es fácil de usar y no requiere instalación ni
+                        descarga. Puedes acceder a él desde cualquier
+                        dispositivo, en cualquier lugar y en cualquier momento.
+                        Todo lo que necesita es una conexión a Internet y una
+                        cuenta comercial. TradeGPT hará el resto por usted.
+                     </p>
+                  </div>
+               </article>
+
+               <p class="text-base text-center lg:text-2xl">
+                  TradeGPT es el futuro del comercio. Es la solución comercial
+                  definitiva impulsada por IA. No pierda esta oportunidad de
+                  unirse a la revolución comercial. Regístrese en TradeGPT hoy y
+                  comience a operar con el poder de la inteligencia
+                  artificial.👇
+               </p>
+
+               <a
+                  href="#home-section"
+                  class="bg-[#FF5981] w-full text-center text-white rounded-lg p-1 text-base md:w-[80%] lg:text-2xl lg:w-[50%]"
+               >
+                  ¡Sí, me gustaría probar el poder de la IA combinado con el
+                  comercio!
+               </a>
+
+               <p class="text-base text-center lg:text-2xl">
+                  Como muestra la imagen de arriba, 250€ se multiplicaron
+                  rápidamente hasta obtener un retorno semanal promedio de
+                  1793€, ¡gracias a las increíbles capacidades de la tecnología
+                  de inteligencia artificial de vanguardia de TradeGPT!
+               </p>
+
+               <p class="text-base text-center lg:text-2xl">
+                  ¿Quieres ver los sorprendentes resultados que TradeGPT puede
+                  lograr para ti? Luego consulte a continuación el panel de
+                  TradeGPT.👇
+               </p>
+
+               <div class="w-full lg:w-[70%]">
+                  <img src="images/article_img.png.png" alt="" />
+               </div>
+
+               <p class="text-base text-center lg:text-2xl">
+                  Toma la decisión que podría cambiar tu futuro financiero.
+                  Únase a TradeGPT ahora y adopte el algoritmo que está
+                  cambiando las reglas del juego.
+               </p>
+
+               <p class="text-base text-center lg:text-2xl">
+                  No dejes escapar esta oportunidad. Regístrese ahora para
+                  obtener TradeGPT.👇
+               </p>
+
+               <a
+                  href="#home-section"
+                  class="bg-[#FF5981] text-center w-full text-white rounded-lg p-1 text-base md:w-[80%] lg:text-2xl lg:w-[50%]"
+               >
+                  ¡Sí, me gustaría probar el poder de la IA combinado con el
+                  comercio!
+               </a>
+            </div>
+         </section>
+
+         <!-- ? AUN NO ESTAS  section -->
+         <section
+            id="home-section"
+            class="flex flex-col items-center justify-center custom-bg"
+         >
+            <div
+               class="flex flex-col items-center sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:[1280px] 2xl:w-[1400px] gap-5 p-5"
+            >
+               <div class="flex justify-center lg:w-[80%]">
+                  <h2
+                     class="text-3xl text-white font-bold text-center md:text-4xl lg:text-5xl mb-10"
+                  >
+                     ¿Aún no estás convencido🤔? Lea lo que dicen quienes han
+                     probado TradeGPT 👇
+                  </h2>
+               </div>
+
+               <article
+                  class="flex flex-col items-center md:flex-row gap-5 lg:mb-20 md:[&>div]:p-1 md:[&>div]:h-[1000px] lg:[&>div]:h-[750px] 2xl:[&>div]:h-[600px]"
+               >
+                  <div
+                     class="text-center flex flex-col items-center justify-between gap-5"
+                  >
+                     <img
+                        src="images/access_item_1.jpg.png"
+                        class="md:w-[115px] lg:w-[180px]"
+                        alt=""
+                     />
+
+                     <h2 class="text-xl font-semibold text-white">
+                        Eduardo Zimmerman
+                     </h2>
+                     <p class="text-white text-xl md:text-lg">
+                        “He estado usando TradeGPT durante un mes y estoy
+                        sorprendido con los resultados. TradeGPT es el mejor
+                        sistema comercial que he probado. Es fácil de usar,
+                        confiable y rentable. TradeGPT me ha ayudado a aumentar
+                        mis ingresos en un 300% en tan solo unas semanas.
+                        Recomiendo ampliamente TradeGPT a cualquiera que quiera
+                        operar con confianza y éxito”.
+                     </p>
+                     <h3 class="text-white font-bold text-xl">
+                        -Director de marketing -
+                     </h3>
+                  </div>
+                  <div
+                     class="text-center flex flex-col items-center gap-5 justify-between"
+                  >
+                     <img
+                        src="images/access_item_2.jpg.png"
+                        class="md:w-[115px] lg:w-[180px]"
+                        alt=""
+                     />
+
+                     <h2 class="text-xl font-semibold text-white">
+                        Eric Johnson
+                     </h2>
+                     <p class="text-white text-xl md:text-lg">
+                        “TradeGPT es un punto de inflexión para mí. Siempre me
+                        ha interesado el trading, pero nunca tuve el tiempo ni
+                        las habilidades para hacerlo correctamente. TradeGPT
+                        cambió eso para mí. TradeGPT hace todo el trabajo por
+                        mí: analiza el mercado, ejecuta operaciones y gestiona
+                        mi cartera. TradeGPT es como tener un operador
+                        profesional a mi lado, 24 horas al día, 7 días a la
+                        semana. TradeGPT me ha hecho ganar más dinero del que
+                        jamás soñé”.
+                     </p>
+                     <h3 class="text-white font-bold text-xl">
+                        -Crítico de arte-
+                     </h3>
+                  </div>
+
+                  <div
+                     class="text-center flex flex-col items-center justify-between gap-5"
+                  >
+                     <img
+                        src="images/access_item_3.jpg.png"
+                        class="md:w-[115px] lg:w-[180px]"
+                        alt=""
+                     />
+
+                     <h2 class="text-xl font-semibold text-white">
+                        Edward Johnson
+                     </h2>
+                     <p class="text-white text-xl md:text-lg">
+                        “TradeGPT es un milagro. Al principio era escéptico,
+                        pero decidí intentarlo. Estoy muy contenta de haberlo
+                        hecho. TradeGPT es el sistema comercial más avanzado y
+                        eficaz del mercado. TradeGPT utiliza inteligencia
+                        artificial para tomar decisiones comerciales
+                        inteligentes por mí. TradeGPT ha convertido mi pequeña
+                        inversión en una fortuna. TradeGPT es lo mejor que me ha
+                        pasado en la vida”.
+                     </p>
+                     <h3 class="text-white font-bold text-xl">
+                        -Constructor de botes-
+                     </h3>
+                  </div>
+               </article>
+
+               <p
+                  class="text-base text-center lg:text-2xl md:text-3xl text-white"
+               >
+                  ¿Que estas esperando? Empiece a utilizar TradeGPT también.👇
+               </p>
+
+               <a
+                  href="#home-section"
+                  class="bg-[#FF5981] cursor-pointer text-center w-full text-white md:text-3xl rounded-lg p-1 text-base md:w-[80%] lg:text-2xl lg:w-[50%]"
+               >
+                  ¡Sí, me gustaría probar el poder de la IA combinado con el
+                  comercio!
+               </a>
+            </div>
+         </section>
+
+         <!-- ? ESTA PAGINA NO REPRESENTA section -->
+         <section id="home-section" class="flex justify-center">
+            <div
+               class="flex sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:[1280px] 2xl:w-[1400px]"
+            >
+               <div class="flex justify-center text-center">
+                  <p class="text-[#404040] text-xs md:text-sm p-10">
+                     Esta página no representa a la empresa publicitada y los
+                     puntos de vista aquí expresados no necesariamente
+                     corresponden con la política oficial o postura de cualquier
+                     otra empresa.
+                  </p>
+               </div>
+            </div>
+         </section>
+
+         <section id="home-section" class="flex justify-center">
+            <div
+               class="flex sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:[1280px] 2xl:w-[1400px]"
+            ></div>
+         </section>
+
+         <section id="home-section" class="flex justify-center">
+            <div
+               class="flex sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:[1280px] 2xl:w-[1400px]"
+            ></div>
+         </section>
+      </main>
+
+      <footer
+         id="footer"
+         class="flex flex-col items-center justify-center bg-[#E5E5E5] p-5"
+      >
+         <div
+            class="flex flex-col items-center sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:[1280px] 2xl:w-[1400px]"
+         >
+            <div
+               class="flex flex-col items-center gap-5 lg:items-start lg:gap-10"
+            >
+               <img src="images/top.png" class="w-[290px]" alt="" />
+
+               <div>
+                  <ul
+                     class="text-center flex flex-col lg:flex-row items-center gap-5"
+                  >
+                     <li
+                        class="text-sm font-bold cursor-pointer"
+                        onclick="clickModal('about-modal')"
+                     >
+                        Acerca de nosotros
+                     </li>
+                     <li
+                        class="text-sm font-bold cursor-pointer"
+                        onclick="clickModal('privacy-modal')"
+                     >
+                        Política de privacidad
+                     </li>
+                     <li
+                        class="text-sm font-bold cursor-pointer"
+                        onclick="clickModal('terms-modal')"
+                     >
+                        Términos y Condiciones
+                     </li>
+                     <li
+                        class="text-sm font-bold cursor-pointer"
+                        onclick="clickModal('contact-modal')"
+                     >
+                        Contáctenos
+                     </li>
+                     <li
+                        class="text-sm font-bold cursor-pointer"
+                        onclick="clickModal('cookies-modal')"
+                     >
+                        Política de cookies
+                     </li>
+                  </ul>
+               </div>
+
+               <div>
+                  <p class="text-xs text-center lg:text-left">
+                     Los CFD son instrumentos complejos y conllevan un riesgo
+                     elevado de perder dinero rápidamente debido al
+                     apalancamiento. Entre el 74 y el 89 % de las cuentas de los
+                     inversores minoristas pierden dinero cuando operan con CFD.
+                     Usted debería considerar si entiende cómo funcionan los CFD
+                     y si puede permitirse el riesgo de perder su dinero.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </footer>
+
+      <!-- ! Modals -->
+      <!-- ? Terms and Conditions Modal -->
+      <section
+         id="terms-modal"
+         class="bg-[#00000088] font-[Inter] flex items-center justify-center min-h-screen absolute z-50 hidden"
+      >
+         <div
+            class="fixed inset-0 w-full bg-[#00000088] flex items-center justify-center max-h-screen"
+         >
+            <div
+               class="bg-white shadow-lg w-11/12 sm:w-8/12 lg:max-w-[600px] h-auto max-h-54 rounded-md"
+            >
+               <div class="relative flex items-end">
+                  <img
+                     class="hover:cursor-pointer absolute top-0 right-0 w-7 m-4 rounded-xs"
+                     onclick="clickModal('terms-modal')"
+                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRUZFRkVGIiBkPSJNMTkgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yVjVhMiAyIDAgMCAwLTItMm0tMy40IDE0TDEyIDEzLjRMOC40IDE3TDcgMTUuNmwzLjYtMy42TDcgOC40TDguNCA3bDMuNiAzLjZMMTUuNiA3TDE3IDguNEwxMy40IDEybDMuNiAzLjZ6Ii8+PC9zdmc+"
+                     alt=""
+                  />
+                  <div class="bg-primarybg w-full">
+                     <h2
+                        class="text-base text-center p-4 font-bold text-white w-full"
+                     >
+                        Terms and Conditions
+                     </h2>
+                  </div>
+               </div>
+
+               <article
+                  class="overflow-y-auto overflow-x-hidden h-96 p-5 text-xs flex flex-col gap-4"
+               ></article>
+            </div>
+         </div>
+      </section>
+
+      <!-- ? Privacy Policy Modal -->
+      <section
+         id="privacy-modal"
+         class="bg-[#00000088] font-[Inter] flex items-center justify-center min-h-screen absolute z-50 hidden"
+      >
+         <div
+            class="fixed inset-0 w-full bg-[#00000088] flex items-center justify-center max-h-screen"
+         >
+            <div
+               class="bg-white shadow-lg w-11/12 sm:w-8/12 lg:max-w-[600px] h-auto max-h-54 rounded-md"
+            >
+               <div class="relative flex items-end">
+                  <img
+                     class="hover:cursor-pointer absolute top-0 right-0 w-7 m-4 rounded-xs"
+                     onclick="clickModal('privacy-modal')"
+                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRUZFRkVGIiBkPSJNMTkgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yVjVhMiAyIDAgMCAwLTItMm0tMy40IDE0TDEyIDEzLjRMOC40IDE3TDcgMTUuNmwzLjYtMy42TDcgOC40TDguNCA3bDMuNiAzLjZMMTUuNiA3TDE3IDguNEwxMy40IDEybDMuNiAzLjZ6Ii8+PC9zdmc+"
+                     alt=""
+                  />
+                  <div class="bg-primarybg w-full">
+                     <h2
+                        class="text-base text-center p-4 font-bold text-white w-full"
+                     >
+                        Privacy Policy
+                     </h2>
+                  </div>
+               </div>
+
+               <article
+                  class="overflow-y-auto overflow-x-hidden h-96 p-5 text-xs flex flex-col gap-4"
+               ></article>
+            </div>
+         </div>
+      </section>
+
+      <!-- ? Cookies Modal -->
+      <section
+         id="cookies-modal"
+         class="bg-[#00000088] font-[Inter] flex items-center justify-center min-h-screen absolute z-50 hidden"
+      >
+         <div
+            class="fixed inset-0 w-full bg-[#00000088] flex items-center justify-center max-h-screen"
+         >
+            <div
+               class="bg-white shadow-lg w-11/12 sm:w-8/12 lg:max-w-[600px] h-auto max-h-54 rounded-md"
+            >
+               <div class="relative flex items-end">
+                  <img
+                     class="hover:cursor-pointer absolute top-0 right-0 w-7 m-4 rounded-xs"
+                     onclick="clickModal('cookies-modal')"
+                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRUZFRkVGIiBkPSJNMTkgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yVjVhMiAyIDAgMCAwLTItMm0tMy40IDE0TDEyIDEzLjRMOC40IDE3TDcgMTUuNmwzLjYtMy42TDcgOC40TDguNCA3bDMuNiAzLjZMMTUuNiA3TDE3IDguNEwxMy40IDEybDMuNiAzLjZ6Ii8+PC9zdmc+"
+                     alt=""
+                  />
+                  <div class="bg-primarybg w-full">
+                     <h2
+                        class="text-base text-center p-4 font-bold text-white w-full"
+                     >
+                        Cookie Policy
+                     </h2>
+                  </div>
+               </div>
+
+               <article
+                  class="overflow-y-auto overflow-x-hidden h-96 p-5 text-xs flex flex-col gap-4"
+               ></article>
+            </div>
+         </div>
+      </section>
+
+      <!-- ? Contact Modal -->
+      <section
+         id="contact-modal"
+         class="bg-[#00000088] font-[Inter] flex items-center justify-center min-h-screen absolute z-50 hidden"
+      >
+         <div
+            class="fixed inset-0 w-full bg-[#00000088] flex items-center justify-center max-h-screen"
+         >
+            <div
+               class="bg-white shadow-lg w-11/12 sm:w-8/12 lg:max-w-[600px] h-auto max-h-54 rounded-md"
+            >
+               <div class="relative flex items-end">
+                  <img
+                     class="hover:cursor-pointer absolute top-0 right-0 w-7 m-4 rounded-xs"
+                     onclick="clickModal('contact-modal')"
+                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRUZFRkVGIiBkPSJNMTkgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yVjVhMiAyIDAgMCAwLTItMm0tMy40IDE0TDEyIDEzLjRMOC40IDE3TDcgMTUuNmwzLjYtMy42TDcgOC40TDguNCA3bDMuNiAzLjZMMTUuNiA3TDE3IDguNEwxMy40IDEybDMuNiAzLjZ6Ii8+PC9zdmc+"
+                     alt=""
+                  />
+                  <div class="bg-primarybg w-full">
+                     <h2
+                        class="text-base text-center p-4 font-bold text-white w-full"
+                     >
+                        Contact
+                     </h2>
+                  </div>
+               </div>
+
+               <article
+                  class="overflow-y-auto overflow-x-hidden h-96 p-5 text-xs flex flex-col gap-4"
+               ></article>
+            </div>
+         </div>
+      </section>
+
+      <!-- ? About Modal -->
+      <section
+         id="about-modal"
+         class="bg-[#00000088] font-[Inter] flex items-center justify-center min-h-screen absolute z-50 hidden"
+      >
+         <div
+            class="fixed inset-0 w-full bg-[#00000088] flex items-center justify-center max-h-screen"
+         >
+            <div
+               class="bg-white shadow-lg w-11/12 sm:w-8/12 lg:max-w-[600px] h-auto max-h-54 rounded-md"
+            >
+               <div class="relative flex items-end">
+                  <img
+                     class="hover:cursor-pointer absolute top-0 right-0 w-7 m-4 rounded-xs"
+                     onclick="clickModal('about-modal')"
+                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRUZFRkVGIiBkPSJNMTkgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yVjVhMiAyIDAgMCAwLTItMm0tMy40IDE0TDEyIDEzLjRMOC40IDE3TDcgMTUuNmwzLjYtMy42TDcgOC40TDguNCA3bDMuNiAzLjZMMTUuNiA3TDE3IDguNEwxMy40IDEybDMuNiAzLjZ6Ii8+PC9zdmc+"
+                     alt=""
+                  />
+                  <div class="bg-primarybg w-full">
+                     <h2
+                        class="text-base text-center p-4 font-bold text-white w-full"
+                     >
+                        Contact
+                     </h2>
+                  </div>
+               </div>
+
+               <article
+                  class="overflow-y-auto overflow-x-hidden h-96 p-5 text-xs flex flex-col gap-4"
+               ></article>
+            </div>
+         </div>
+      </section>
+   </body>
+</html>
